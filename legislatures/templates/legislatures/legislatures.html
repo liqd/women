@@ -9,7 +9,7 @@
       <script src="https://code.highcharts.com/modules/series-label.js"></script>
       <script src="https://code.highcharts.com/modules/exporting.js"></script>
       <script src="https://code.highcharts.com/modules/export-data.js"></script>
-      <TITLE>My first HTML document</TITLE>
+      <TITLE>Frauen in deutschen Parlamenten</TITLE>
    </HEAD>
 
    <BODY>
@@ -86,7 +86,7 @@
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script type="text/javascript">
-      var data = {{legislatures | safe }}
+      var data = {{series | safe }}
       var years = {{years | safe }}
    </script>
    <script src="{% static 'vis.js' %}"></script>

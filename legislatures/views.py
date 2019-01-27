@@ -16,21 +16,26 @@ class LegislaturesView(TemplateView):
         legislatures = Legislature.objects.all()
 
         years = [legislature.year for legislature in legislatures]
-        data =  [legislature.percentage for legislature in legislatures]
+        types = Legislature.POLITICAL_SYSTEM_CHOICES
 
-        result = []
+        series = []
 
-        for legislature in legislatures:
-
-            result.append({
-                'name': legislature.name,
-                'year': legislature.year,
-                'percentage': legislature.percentage,
+        for type, typename in types:
+            legislatures = Legislature.objects.filter(system=type)
+            data = []
+            for year in years:
+                if legislatures.filter(year=year):
+                    #for l in legislatures.filter(year=year):
+                    #    data.append(l.percentage)
+                    data.append(legislatures.filter(year=year).first().percentage)
+                else:
+                    data.append('')
+            series.append({
+                'name': typename,
+                'data': data
             })
 
-
-
-        context['legislatures'] = json.dumps(data, cls=DjangoJSONEncoder)
+        context['series'] = json.dumps(series, cls=DjangoJSONEncoder)
         context['years'] = json.dumps(years, cls=DjangoJSONEncoder)
         return context
 

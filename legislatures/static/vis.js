@@ -63,13 +63,21 @@ Highcharts.setOptions(Highcharts.theme);
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    var newData = data.map(function(d){return parseFloat(d)});
+    var newData = data.map(function(d){
+        return {
+            name: d.name,
+            data: d.data.map(function(p){
+                return parseFloat(p)
+            })
+        }
+    });
 
     Highcharts.chart('container', {
     chart: {
         type: 'line'
     },
-        title: {
+
+    title: {
         text: 'Frauenanteil in Deutschen Parlamenten'
     },
         /*subtitle: {
@@ -91,10 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
         enableMouseTracking: false
         }
     },
-    series: [{
-        name: 'Weimarer Republik und Bundesrepublik Deutschland',
-        data: newData
-    }]
+    series: newData
     });
 
 })
