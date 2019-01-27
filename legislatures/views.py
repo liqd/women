@@ -13,17 +13,17 @@ class LegislaturesView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        legislatures = Legislature.objects.all()
 
-        years = [legislature.year for legislature in legislatures]
+        years = Legislature.objects.order_by('year').values('year').distinct()
+        years_list = [year['year'] for year in years]
         types = Legislature.POLITICAL_SYSTEM_CHOICES
 
         series = []
 
         for type, typename in types:
-            legislatures = Legislature.objects.filter(system=type)
+            legislatures = Legislature.objects.all().filter(system=type)
             data = []
-            for year in years:
+            for year in years_list:
                 if legislatures.filter(year=year):
                     #for l in legislatures.filter(year=year):
                     #    data.append(l.percentage)
@@ -36,6 +36,6 @@ class LegislaturesView(TemplateView):
             })
 
         context['series'] = json.dumps(series, cls=DjangoJSONEncoder)
-        context['years'] = json.dumps(years, cls=DjangoJSONEncoder)
+        context['years'] = json.dumps(years_list, cls=DjangoJSONEncoder)
         return context
 
