@@ -18,13 +18,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="" >First</a>
+              <a class="nav-link" href="#first" >First</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="" >Graph</a>
+              <a class="nav-link" href="#container" >Graph</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="" >Infographic</a>
+              <a class="nav-link" href="#infographic" >Infographic</a>
             </li>
           </ul>
        </div>
@@ -36,41 +36,29 @@
             <h1 class="display-4">Frauen in deutschen Parlamenten</h1>
         </div>
     </div>
-    <div class="row">
+    <div class="row" id="first">
         <div class="col-sm-12 col-md-12 py-4">
-            <img class="lead-img" src="{% static 'Schroeder.jpg' %}" ></img>
             <div class="lead">
-              <h2>Internationaler Tag der Frau</h2>
-            <p>Der 8. März, Internationaler Tag der Frau, wird nun zum Feiertag in Berlin. Am 19. Feburaur 2019 sprach zum ersten mal eine Frau als Abgeordnete in einem deutsche Parlament. 100 Jahre in denen sich zwar viel geändert hat,
-              aber Frauen immer noch nicht gleichberechtigt in der Poltik sind. Mit dieser Datenanlyse zu Frauen in deutschen Parlamenten, zeigen wir, wie sich die Repräsentation von Frauen in der deutschen Politik entwickelt hat.</p>
+                <h2>Internationaler Tag der Frau</h2>
+                <p>Seit 100 Jahren sind Frauen in deutschen Parlamenten vertreten – aber von Gleichberechtigung in der wichtigsten politischen Institution sind sie weit entfernt. Anlässlich des neuen Feiertags zum Internationen Frauenkampftag am 8. März 2019 in Berlin, zeigen wir, dass heute wie damals Frauen weit von 50 Prozent der Sitze in den deutschen Parlamenten entfernt sind.</p>
+                <p>Diese Analyse ist im Rahmen eines Hackathons am 27. Januar 2019 beim Liquid Democracy e.V. entstanden.</p>
             </div>
         </div>
-    </div>
-
-    <div class="row">
-        <div class="col-sm-12 col-md-12 py-4">
-            <h2>Prozentualer Anteil in dt. Parlamenten</h2>
-            <p>Um das Recht wählen und bei Wahlen kandidieren zu dürfen hatte die internationale Frauenbewegung lange kämpfen müssen. Ihre historischen Wurzeln liegen in der Zeit der französischen Revolution von 1789. Die Revolutionäre, darunter viele
-              Frauen, hatten Freiheit, Gleichheit und Brüderlichkeit gefordert, das allgemeine Wahlrecht wurde jedoch nur für Männer eingeführt.</p>
-                <h2>Traurige Fakten</h2>
-                <p>Um das Recht wählen und bei Wahlen kandidieren zu dürfen hatte die internationale Frauenbewegung lange kämpfen müssen. Ihre historischen Wurzeln liegen in der Zeit der französischen Revolution von 1789. Die Revolutionäre, darunter viele
-                  Frauen, hatten Freiheit, Gleichheit und Brüderlichkeit gefordert, das allgemeine Wahlrecht wurde jedoch nur für Männer eingeführt.</p>
-        </div>
-      </div>  
+      </div>
       <div>
          <div id="container"></div>
       </div>
     </div>
-    <!-- <div class="row">
-        <div class="col-sm-12 col-md-12 py-4">
+    <div class="row" id="infographic">
+        <div class="lead-2">
             <h2>Traurige Fakten</h2>
             <p>Um das Recht wählen und bei Wahlen kandidieren zu dürfen hatte die internationale Frauenbewegung lange kämpfen müssen. Ihre historischen Wurzeln liegen in der Zeit der französischen Revolution von 1789. Die Revolutionäre, darunter viele
               Frauen, hatten Freiheit, Gleichheit und Brüderlichkeit gefordert, das allgemeine Wahlrecht wurde jedoch nur für Männer eingeführt.</p>
         </div>
-    </div> -->
-    <div class="row">
         <div class="info-graph-1">
-          <img src="https://docs.telerik.com/devtools/aspnet-ajax/controls/htmlchart/chart-types/images/htmlchart-piechart-simple-example.png" style=""></img>
+          <img src="{% static 'Frauenparlament.jpg' %}" style="width: 100%; margin: auto;"></img>
+          <img src="{% static 'Frauenparlament2.jpg' %}" style="width: 100%; margin: auto; padding-top: 3rem;"></img>
+
         </div>
     </div>
   </main>
@@ -96,4 +84,3 @@
 </BODY>
 
 </HTML>
-

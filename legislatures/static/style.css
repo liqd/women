@@ -35,11 +35,14 @@ h1 {
     margin-bottom: 3rem;
 }
 
-.lead {
+/* .lead {
     width: 75%;
     float: right;
-}
+} */
 
+.lead-2 {
+    margin-top: 5rem;
+}
 .lead-img {
         float: left;
         padding-right: 1rem;
@@ -57,4 +60,3 @@ h1 {
 .info-graph-1 {
     margin: auto;
 }
->>>>>>> master
