@@ -1,27 +1,60 @@
-body { font: 12px Arial;}
-         path {
-             stroke: steelblue;
-             stroke-width: 2;
-             fill: none;
-         }
+body {
+    font-family: 'Plantin', 'Times New Roman', serif;
+}
 
-         .axis path,
-         .axis line {
-             fill: none;
-             stroke: grey;
-             stroke-width: 1;
-             shape-rendering: crispEdges;
-         }
+a {
+    color: black;
+}
 
-         div.tooltip {
-             position: absolute;
-             text-align: center;
-             width: 60px;
-             height: 28px;
-             padding: 2px;
-             font: 12px sans-serif;
-             background: lightsteelblue;
-             border: 0px;
-             border-radius: 8px;
-             pointer-events: none;
-         }
+a:hover {
+    color: black;
+    text-decoration: underline !important;
+}
+
+h1 {
+    text-align: center;
+}
+
+.navbar {
+    background-color: white;
+}
+
+.navbar-nav {
+    margin: auto;
+    font-size: 1.5rem;
+}
+
+.nav-item {
+    padding: 1rem 2rem;
+}
+
+.jumbotron {
+    margin: auto;
+    padding: 2rem 2rem;
+    margin-top: 8rem;
+    margin-bottom: 3rem;
+}
+
+.lead {
+    width: 75%;
+    float: right;
+}
+
+.lead-img {
+        float: left;
+        padding-right: 1rem;
+        width: 250px;
+        height: 200px;
+        overflow: hidden;
+        background-size: cover;
+    }
+
+.graph {
+    margin: auto;
+    margin-top: 4rem;
+}
+
+.info-graph-1 {
+    margin: auto;
+}
+>>>>>>> master

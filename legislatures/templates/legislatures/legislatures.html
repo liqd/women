@@ -4,7 +4,6 @@
 <HTML>
    <HEAD>
       <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" media="screen" />
-      <TITLE>My first HTML document</TITLE>
       <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" media="screen" />
       <script src="https://code.highcharts.com/highcharts.js"></script>
       <script src="https://code.highcharts.com/modules/series-label.js"></script>
@@ -12,13 +11,87 @@
       <script src="https://code.highcharts.com/modules/export-data.js"></script>
       <TITLE>My first HTML document</TITLE>
    </HEAD>
+
    <BODY>
-   <div id="container"></div>
-   <script type="text/javascript">
+  <nav class="navbar navbar-expand-md navbar-light fixed-top">
+      <a class="navbar-brand" href="https://liqd.net" target="_blank">Liquid Democracy</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="" >First</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="" >Graph</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="" >Infographic</a>
+            </li>
+          </ul>
+       </div>
+  </nav>
+
+  <main role="main" class="container">
+    <div class="row d-flex align-content-center">
+        <div class="jumbotron">
+            <h1 class="display-4">Frauen in deutschen Parlamenten</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 py-4">
+            <img class="lead-img" src="{% static 'Schroeder.jpg' %}" ></img>
+            <div class="lead">
+              <h2>Internationaler Tag der Frau</h2>
+            <p>Der 8. März, Internationaler Tag der Frau, wird nun zum Feiertag in Berlin. Am 19. Feburaur 2019 sprach zum ersten mal eine Frau als Abgeordnete in einem deutsche Parlament. 100 Jahre in denen sich zwar viel geändert hat,
+              aber Frauen immer noch nicht gleichberechtigt in der Poltik sind. Mit dieser Datenanlyse zu Frauen in deutschen Parlamenten, zeigen wir, wie sich die Repräsentation von Frauen in der deutschen Politik entwickelt hat.</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div id="container"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 py-4">
+            <h2>Prozentualer Anteil in dt. Parlamenten</h2>
+            <p>Um das Recht wählen und bei Wahlen kandidieren zu dürfen hatte die internationale Frauenbewegung lange kämpfen müssen. Ihre historischen Wurzeln liegen in der Zeit der französischen Revolution von 1789. Die Revolutionäre, darunter viele
+              Frauen, hatten Freiheit, Gleichheit und Brüderlichkeit gefordert, das allgemeine Wahlrecht wurde jedoch nur für Männer eingeführt.</p>
+                <h2>Traurige Fakten</h2>
+                <p>Um das Recht wählen und bei Wahlen kandidieren zu dürfen hatte die internationale Frauenbewegung lange kämpfen müssen. Ihre historischen Wurzeln liegen in der Zeit der französischen Revolution von 1789. Die Revolutionäre, darunter viele
+                  Frauen, hatten Freiheit, Gleichheit und Brüderlichkeit gefordert, das allgemeine Wahlrecht wurde jedoch nur für Männer eingeführt.</p>
+        </div>
+    </div>
+    <!-- <div class="row">
+        <div class="col-sm-12 col-md-12 py-4">
+            <h2>Traurige Fakten</h2>
+            <p>Um das Recht wählen und bei Wahlen kandidieren zu dürfen hatte die internationale Frauenbewegung lange kämpfen müssen. Ihre historischen Wurzeln liegen in der Zeit der französischen Revolution von 1789. Die Revolutionäre, darunter viele
+              Frauen, hatten Freiheit, Gleichheit und Brüderlichkeit gefordert, das allgemeine Wahlrecht wurde jedoch nur für Männer eingeführt.</p>
+        </div>
+    </div> -->
+    <div class="row">
+        <div class="info-graph-1">
+          <img src="https://docs.telerik.com/devtools/aspnet-ajax/controls/htmlchart/chart-types/images/htmlchart-piechart-simple-example.png" style=""></img>
+        </div>
+    </div>
+  </main>
+  <footer class="container">
+      <nav class="navbar navbar-expand-sm col-offset-9">
+          <a class="btn btn-link" href="https://liqd.net/en/blog/" target="_blank" role="button">Blog</a>
+          <a class="btn btn-link" href="https://www.facebook.com/LIQDeV" target="_blank" role="button">Facebook</a>
+          <a class="btn btn-link" href="https://twitter.com/liqd_de" target="_blank" role="button">Twitter</a>
+          <a class="btn btn-link" href="https://github.com/liqd" target="_blank" role="button">Github</a>
+      </nav>
+  </footer>
+    <!-- /.container -->
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script type="text/javascript">
       var data = {{legislatures | safe }}
       var years = {{years | safe }}
    </script>
    <script src="{% static 'vis.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</BODY>
 
-   </BODY>
 </HTML>
+
