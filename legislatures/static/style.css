@@ -1,0 +1,59 @@
+body {
+    font-family: 'Plantin', 'Times New Roman', serif;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: black;
+    text-decoration: underline !important;
+}
+
+h1 {
+    text-align: center;
+}
+
+.navbar {
+    background-color: white;
+}
+
+.navbar-nav {
+    margin: auto;
+    font-size: 1.5rem;
+}
+
+.nav-item {
+    padding: 1rem 2rem;
+}
+
+.jumbotron {
+    margin: auto;
+    padding: 2rem 2rem;
+    margin-top: 8rem;
+    margin-bottom: 3rem;
+}
+
+.lead {
+    width: 75%;
+    float: right;
+}
+
+.lead-img {
+        float: left;
+        padding-right: 1rem;
+        width: 250px;
+        height: 200px;
+        overflow: hidden;
+        background-size: cover;
+    }
+
+.graph {
+    margin: auto;
+    margin-top: 4rem;
+}
+
+.info-graph-1 {
+    margin: auto;
+}
