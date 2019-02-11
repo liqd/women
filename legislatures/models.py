@@ -24,7 +24,7 @@ class Legislature(models.Model):
     )
 
     def __str__(self):
-        return self.name
+        return (self.name + ' - ' + str(self.year))
 
 
 class ParliamentaryGroup(models.Model):
