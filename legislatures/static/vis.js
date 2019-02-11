@@ -1,108 +1,87 @@
-    Highcharts.theme = {
-    colors: ['#7cb5ec', '#f7a35c', '#90ee7e', '#7798BF', '#aaeeee', '#ff0066',
-        '#eeaaee', '#55BF3B', '#DF5353', '#7798BF', '#aaeeee'],
-    chart: {
-        backgroundColor: null,
-        style: {
-            fontFamily: 'Dosis, sans-serif'
-        }
-    },
-    title: {
-        style: {
-            fontSize: '16px',
-            fontWeight: 'bold',
-            textTransform: 'uppercase'
-        }
-    },
-    tooltip: {
-        borderWidth: 0,
-        backgroundColor: 'rgba(219,219,216,0.8)',
-        shadow: false
-    },
-    legend: {
-        itemStyle: {
-            fontWeight: 'bold',
-            fontSize: '13px'
-        }
-    },
-    xAxis: {
-        gridLineWidth: 1,
-        labels: {
-            style: {
-                fontSize: '12px'
-            }
-        }
-    },
-    yAxis: {
-        minorTickInterval: 'auto',
-        title: {
-            style: {
-                textTransform: 'uppercase'
-            }
-        },
-        labels: {
-            style: {
-                fontSize: '12px'
-            }
-        }
-    },
-    plotOptions: {
-        candlestick: {
-            lineColor: '#404048'
-        }
-    },
+$(function () {
+    var margin = {top: 20, right: 20, bottom: 30, left: 40},
+        width = 1140,
+        height = 600;
 
+    var parseDate = d3.timeParse("%Y-%m-%d")
+    var formatTime = d3.time.format("%Y")
 
-    // General
-    background2: '#F0F0EA'
+    var x = d3.time.scale()
+        .domain([new Date(1919, 1, 1), new Date(2030, 1, 1)])
+        .range([0, width])
 
-};
+    var allValues = values.map(function (d) {
+        return parseFloat(d)
+    })
+    var maxValue = d3.max(allValues)
+    var y = d3.scale.linear()
+        .domain([0, maxValue])
+        .range([height, 0])
 
-Highcharts.setOptions(Highcharts.theme);
+    var xAxis = d3.svg.axis().scale(x).orient("bottom").ticks(30)
+    var yAxis = d3.svg.axis().scale(y).orient("left")
 
+    var valueline = d3.svg.line()
+        .x(function (d) {
+            return x(d.year);
+        })
+        .y(function (d) {
+            return y(d.value);
+        })
 
-document.addEventListener('DOMContentLoaded', function () {
+    var div = d3.select("#chart").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
 
-    var newData = data.map(function(d){
-        return {
-            name: d.name,
-            data: d.data.map(function(p){
-                return parseFloat(p)
+    var svg = d3.select("#chart")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")")
+    svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis)
+    svg.append("g")
+        .attr("class", "y axis")
+        .call(yAxis)
+
+    data.forEach(function (item, i) {
+        var name = item.name
+        var data = item.data
+
+        data.forEach(function (d) {
+            d.year = parseDate(d.year);
+        })
+        svg.append("path")
+            .attr("class", "line line-" + i)
+            .attr("d", valueline(data));
+
+        svg.selectAll("dot")
+            .data(data)
+            .enter().append("circle")
+            .attr("r", 5)
+            .attr("cx", function (d) {
+                return x(d.year);
             })
-        }
-    });
+            .attr("cy", function (d) {
+                return y(d.value);
+            })
+            .on("mouseover", function (d) {
+                div.transition()
+                    .duration(200)
+                    .style("opacity", .9);
+                div.html(name + " (" + formatTime(d.year) + ")<br/>" + d.value + ' %')
+                    .style("left", (d3.event.pageX) + "px")
+                    .style("top", (d3.event.pageY - 28) + "px");
+            })
+            .on("mouseout", function (d) {
+                div.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            });
 
-    Highcharts.chart('container', {
-    chart: {
-        type: 'line'
-    },
 
-    title: {
-        text: 'Frauenanteil in Deutschen Parlamenten'
-    },
-        /*subtitle: {
-        text: 'Source: WorldClimate.com'
-    },*/
-        xAxis: {
-        categories: years
-    },
-    yAxis: {
-        title: {
-            text: 'Frauenanteil in Prozent'
-        }
-    },
-    plotOptions: {
-    line: {
-        dataLabels: {
-            enabled: true
-        },
-        enableMouseTracking: false
-        }
-    },
-    series: newData
-    });
-
+    })
 })
-
-
-

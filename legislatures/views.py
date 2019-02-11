@@ -1,8 +1,5 @@
 import json
-
 from django.core.serializers.json import DjangoJSONEncoder
-from django.shortcuts import render
-from django.http import HttpResponse
 from django.views.generic import TemplateView
 
 from .models import Legislature
@@ -19,17 +16,20 @@ class LegislaturesView(TemplateView):
         types = Legislature.POLITICAL_SYSTEM_CHOICES
 
         series = []
+        values = []
 
         for type, typename in types:
             legislatures = Legislature.objects.all().filter(system=type)
             data = []
             for year in years_list:
+                year_as_date = '{}-01-01'.format(year)
                 if legislatures.filter(year=year):
-                    #for l in legislatures.filter(year=year):
-                    #    data.append(l.percentage)
-                    data.append(legislatures.filter(year=year).first().percentage)
-                else:
-                    data.append('')
+                    value = legislatures.filter(year=year).first().percentage
+                    values.append(value)
+                    data.append({
+                        'year': year_as_date,
+                        'value': value
+                    })
             series.append({
                 'name': typename,
                 'data': data
@@ -37,5 +37,6 @@ class LegislaturesView(TemplateView):
 
         context['series'] = json.dumps(series, cls=DjangoJSONEncoder)
         context['years'] = json.dumps(years_list, cls=DjangoJSONEncoder)
+        context['values'] = json.dumps(values, cls=DjangoJSONEncoder)
         return context
 
