@@ -16,7 +16,7 @@
   <nav class="navbar navbar-expand-md navbar-light fixed-top">
       <a class="navbar-brand" href="https://liqd.net" target="_blank">Liquid Democracy</a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
+          <ul class="navbar-nav">
             <li class="nav-item active">
               <a class="nav-link" href="#first" >First</a>
             </li>
@@ -30,40 +30,53 @@
        </div>
   </nav>
 
-  <main role="main" class="container">
-    <div class="row d-flex align-content-center">
-        <div class="jumbotron">
-            <h1 class="display-4">Frauen in deutschen Parlamenten</h1>
+    <header class="masthead">
+      <div class="container h-100">
+        <div class="row h-100 align-items-center">
+          <div class="header col-12 text-center pb-3">
+            <h1>Vertically Centered Masthead Content <a class="colour2">#equalsay</a></h1>
+          </div>
         </div>
-    </div>
-    <div class="row" id="first">
-        <div class="col-sm-12 col-md-12 py-4">
-            <div class="lead">
-                <h2>Internationaler Tag der Frau</h2>
-                <p>Seit 100 Jahren sind Frauen in deutschen Parlamenten vertreten – aber von Gleichberechtigung in der wichtigsten politischen Institution sind sie weit entfernt. Anlässlich des neuen Feiertags zum Internationen Frauenkampftag am 8. März 2019 in Berlin, zeigen wir, dass heute wie damals Frauen weit von 50 Prozent der Sitze in den deutschen Parlamenten entfernt sind.</p>
-                <p>Diese Analyse ist im Rahmen eines Hackathons am 27. Januar 2019 beim Liquid Democracy e.V. entstanden.</p>
+      </div>
+    </header>
+
+    <main role="main" class="container">
+        <div class="row" id="first">
+            <div class="col-sm-12 col-md-12 py-4">
+                <div class="text-center">
+                    <h2>Internationaler Tag der Frau</h2>
+                </div>
+                <div class="divider my-3"></div>
+                <div class="intro">
+                    <p>Seit 100 Jahren sind Frauen in deutschen Parlamenten vertreten – aber von Gleichberechtigung in der wichtigsten politischen Institution sind sie weit entfernt. Anlässlich des neuen Feiertags zum Internationen Frauenkampftag am 8. März 2019 in Berlin, zeigen wir, dass heute wie damals Frauen weit von 50 Prozent der Sitze in den deutschen Parlamenten entfernt sind.</p>
+                    <p>Diese Analyse ist im Rahmen eines Hackathons am 27. Januar 2019 beim Liquid Democracy e.V. entstanden.</p>
+                </div>
+                <h4 class="section-header mt-5 text-center">SOME TEXT</h4>
+                <div class="divider2 my-3"></div>
+                    <p>Seit 100 Jahren sind Frauen in deutschen Parlamenten vertreten – aber von Gleichberechtigung in der wichtigsten politischen Institution sind sie weit entfernt. Anlässlich des neuen Feiertags zum Internationen Frauenkampftag am 8. März 2019 in Berlin, zeigen wir, dass heute wie damals Frauen weit von 50 Prozent der Sitze in den deutschen Parlamenten entfernt sind.</p>
             </div>
         </div>
-      </div>
-      <div>
-         <div id="container"></div>
-      </div>
-    </div>
-    <div class="row" id="infographic">
-        <div class="lead-2">
-            <h2>Traurige Fakten</h2>
-            <p>Um das Recht wählen und bei Wahlen kandidieren zu dürfen hatte die internationale Frauenbewegung lange kämpfen müssen. Ihre historischen Wurzeln liegen in der Zeit der französischen Revolution von 1789. Die Revolutionäre, darunter viele
-              Frauen, hatten Freiheit, Gleichheit und Brüderlichkeit gefordert, das allgemeine Wahlrecht wurde jedoch nur für Männer eingeführt.</p>
+        <div>
+           <div id="container"></div>
         </div>
-        <div class="info-graph-1">
-          <img src="{% static 'Frauenparlament.jpg' %}" style="width: 100%; margin: auto;"></img>
-          <img src="{% static 'Frauenparlament2.jpg' %}" style="width: 100%; margin: auto; padding-top: 3rem;"></img>
-
-        </div>
-    </div>
-  </main>
+      </div>
+      <div class="row" id="infographic">
+          <div class="facts">
+              <h4 class="section-header mt-5 text-center">TRAURIGE FAKTEN</h4>
+              <div class="divider3 my-3"></div>
+              <p>Um das Recht wählen und bei Wahlen kandidieren zu dürfen hatte die internationale Frauenbewegung lange kämpfen müssen. Ihre historischen Wurzeln liegen in der Zeit der französischen Revolution von 1789. Die Revolutionäre, darunter viele
+                Frauen, hatten Freiheit, Gleichheit und Brüderlichkeit gefordert, das allgemeine Wahlrecht wurde jedoch nur für Männer eingeführt.</p>
+          </div>
+          <div class="info-graph-1">
+              <img src="{% static 'images/Frauenparlament.jpg' %}" style="width: 100%; margin: auto;"></img>
+              <img src="{% static 'images/Frauenparlament2.jpg' %}" style="width: 100%; margin: auto; padding-top: 3rem;"></img>
+          </div>
+      </div>
+    </main>
   <footer class="container">
-      <nav class="navbar navbar-expand-sm col-offset-9">
+    <h4 class="section-header mt-5 text-center">BLEIB IN KONTACT</h4>
+    <div class="divider3 my-3"></div>
+      <nav class="navbar navbar-expand-sm navbar-bottom">
           <a class="btn btn-link" href="https://liqd.net/en/blog/" target="_blank" role="button">Blog</a>
           <a class="btn btn-link" href="https://www.facebook.com/LIQDeV" target="_blank" role="button">Facebook</a>
           <a class="btn btn-link" href="https://twitter.com/liqd_de" target="_blank" role="button">Twitter</a>

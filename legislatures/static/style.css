@@ -7,7 +7,7 @@ a {
 }
 
 a:hover {
-    color: black;
+    color: #afdded;
     text-decoration: underline !important;
 }
 
@@ -20,37 +20,33 @@ h1 {
 }
 
 .navbar-nav {
-    margin: auto;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
-.nav-item {
-    padding: 1rem 2rem;
+.masthead {
+  height: 95vh;
+  min-height: 500px;
+  background-image: url('images/Female_MPs_of_MSPD_Germany_1919.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.header {
+    color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
-.jumbotron {
-    margin: auto;
-    padding: 2rem 2rem;
-    margin-top: 8rem;
-    margin-bottom: 3rem;
+.section-header {
+    font-family: Favorit, monospace;
 }
 
-/* .lead {
-    width: 75%;
-    float: right;
-} */
-
-.lead-2 {
+.facts {
     margin-top: 5rem;
 }
-.lead-img {
-        float: left;
-        padding-right: 1rem;
-        width: 250px;
-        height: 200px;
-        overflow: hidden;
-        background-size: cover;
-    }
 
 .graph {
     margin: auto;
@@ -58,5 +54,48 @@ h1 {
 }
 
 .info-graph-1 {
+    margin: auto;
+}
+
+.divider {
+    width: 15%;
+    border-top: 3px solid #c3ddee;
+    margin: auto;
+}
+
+.divider2 {
+    width: 15%;
+    border-top: 3px solid #b0d4b0;
+    margin: auto;
+}
+
+.divider3 {
+    width: 15%;
+    border-top: 3px solid #c5d0f0;
+    margin: auto;
+}
+
+.colour1 {
+    color: #c3ddee !important;
+}
+
+.colour2 {
+    color: #b0d4b0 !important;
+}
+
+.colour3 {
+    color: #c5d0f0 !important;
+}
+
+.btn-link {
+    font-family: Favorit, monospace;
+    color: black;
+
+    :hover {
+        color: #c3ddee;
+    }
+}
+
+.navbar-bottom {
     margin: auto;
 }
