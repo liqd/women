@@ -1,5 +1,5 @@
 $(function () {
-    var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    var margin = {top: 20, right: 20, bottom: 50, left: 70},
         width = 1140,
         height = 600;
 
@@ -7,7 +7,7 @@ $(function () {
     var formatTime = d3.time.format("%Y")
 
     var x = d3.time.scale()
-        .domain([new Date(1919, 1, 1), new Date(2030, 1, 1)])
+        .domain([new Date(1910, 1, 1), new Date(2030, 1, 1)])
         .range([0, width])
 
     var allValues = values.map(function (d) {
@@ -40,12 +40,29 @@ $(function () {
         .append("g")
         .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")")
+
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(xAxis)
+
     svg.append("g")
         .attr("class", "y axis")
         .call(yAxis)
+
+    svg.append("text")
+        .attr("transform",
+            "translate(" + (width / 2) + " ," +
+            (height + margin.top + 30) + ")")
+        .style("text-anchor", "middle")
+        .text("Jahr");
+
+    svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - margin.left)
+        .attr("x", 0 - (height / 2))
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .text("Frauenanteil in %");
 
     data.forEach(function (item, i) {
         var name = item.name
@@ -54,7 +71,12 @@ $(function () {
         data.forEach(function (d) {
             d.year = parseDate(d.year);
         })
+
         svg.append("path")
+            .attr("data-legend", function() {
+                return name
+            })
+            .attr("data-legend-pos", i)
             .attr("class", "line line-" + i)
             .attr("d", valueline(data));
 
@@ -82,6 +104,13 @@ $(function () {
                     .style("opacity", 0);
             });
 
-
     })
+
+    svg.append("g")
+    .attr("class","legend")
+    .attr("transform","translate(50,30)")
+    .attr("data-style-padding",10)
+    .style("font-size","14px")
+    .call(d3.legend)
+
 })
