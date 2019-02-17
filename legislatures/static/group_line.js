@@ -4,9 +4,9 @@ $(function () {
         height = 600;
 
     var parseDate = d3.timeParse("%Y-%m-%d")
-    var formatTime = d3.time.format("%Y")
+    var formatTime = d3.timeFormat("%Y")
 
-    var x = d3.time.scale()
+    var x = d3.scaleTime()
         .domain([new Date(1945, 1, 1), new Date(2030, 1, 1)])
         .range([0, width])
 
@@ -14,14 +14,14 @@ $(function () {
         return parseFloat(d)
     })
     var maxValue = d3.max(allValues)
-    var y = d3.scale.linear()
+    var y = d3.scaleLinear()
         .domain([0, maxValue])
         .range([height, 0])
 
-    var xAxis = d3.svg.axis().scale(x).orient("bottom")
-    var yAxis = d3.svg.axis().scale(y).orient("left")
+    var xAxis = d3.axisBottom().scale(x)
+    var yAxis = d3.axisLeft().scale(y)
 
-    var valueline = d3.svg.line()
+    var valueline = d3.line()
         .x(function (d) {
             return x(d.year);
         })
