@@ -2,6 +2,7 @@ import json
 from django.core.serializers.json import DjangoJSONEncoder
 from django.views.generic import TemplateView
 
+from .models import ParliamentaryGroup
 from .models import Legislature
 
 class LegislaturesView(TemplateView):
@@ -35,8 +36,29 @@ class LegislaturesView(TemplateView):
                 'data': data
             })
 
+        legislature = Legislature.objects.get(name='19. Bundestag')
+        groups = ParliamentaryGroup.objects.filter(legislature=legislature)
+        children = []
+        for group in groups:
+            children.append({
+                'name': group.group,
+                'colour': group.colour_code,
+                'children': [
+                    {'name': 'Frauen',
+                     'size': group.number_women},
+                    {'name': 'Männer',
+                     'size': group.number_group - group.number_women},
+                ]
+            })
+
+        parties = {
+            'name': '17. Bundestag',
+            'children': children
+        }
+
         context['series'] = json.dumps(series, cls=DjangoJSONEncoder)
         context['years'] = json.dumps(years_list, cls=DjangoJSONEncoder)
         context['values'] = json.dumps(values, cls=DjangoJSONEncoder)
+        context['parties'] = json.dumps(parties, cls=DjangoJSONEncoder)
         return context
 
