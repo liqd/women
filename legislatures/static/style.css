@@ -1,5 +1,6 @@
 body {
     font-family: 'Plantin', 'Times New Roman', serif;
+    font-size: 21px;
 }
 
 a {
@@ -16,11 +17,21 @@ h1 {
 }
 
 .navbar {
-    background-color: white;
+    background: rgb(247,206,230);
+    background: linear-gradient(90deg, rgba(247,206,230,1) 0%, rgba(188,187,223,1) 61%, rgba(159,233,218,1) 100%);
+    border-color: rgb(27,73,88, 0);
+}
+
+.navbar-brand img {
+    max-width: 180px;
+    position: relative;
+    top: -4px;
+    left: .5rem;
+    margin-right: 1rem;
 }
 
 .navbar-nav {
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
 .masthead {
@@ -32,6 +43,7 @@ h1 {
   background-repeat: no-repeat;
   position: relative;
 }
+
 .header {
     color: white;
     position: absolute;
