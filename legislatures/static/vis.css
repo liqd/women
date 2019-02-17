@@ -1,7 +1,8 @@
 path {
-    stroke: steelblue;
-    stroke-width: 2;
+    stroke: grey;
+    stroke-width: 1;
     fill: none;
+    shape-rendering: crispEdges;
 }
 
 .axis path,
@@ -10,6 +11,11 @@ path {
     stroke: grey;
     stroke-width: 1;
     shape-rendering: crispEdges;
+}
+
+.line {
+    fill: none;
+    stroke-width: 4;
 }
 
 .line-0 {
@@ -39,4 +45,10 @@ div.tooltip {
     border: 0px;
     border-radius: 8px;
     pointer-events: none;
+}
+
+.legend rect {
+  fill:white;
+  stroke:black;
+  opacity:0.8;
 }
