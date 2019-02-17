@@ -23,9 +23,11 @@ coverage.xml
 *.pot
 
 # Environments
+myenv/
 venv/
-/pyvenv.cfg
-/pip-selfcheck.json
+env/
+pyvenv.cfg
+pip-selfcheck.json
 
 # Node
 node_modules/
