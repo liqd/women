@@ -1,7 +1,7 @@
 $(function () {
     var margin = {top: 20, right: 20, bottom: 50, left: 70},
-        width = 1140,
-        height = 600;
+        width = 1024,
+        height = 480;
 
     var parseDate = d3.timeParse("%Y-%m-%d")
     var formatTime = d3.time.format("%Y")
@@ -85,7 +85,7 @@ $(function () {
         svg.selectAll("dot")
             .data(data)
             .enter().append("circle")
-            .attr("r", 5)
+            .attr("r", 6)
             .attr("cx", function (d) {
                 return x(d.year);
             })

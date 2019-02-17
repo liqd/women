@@ -65,7 +65,10 @@
             </div>
         </div>
         <div>
-           <div id="chart"></div>
+          <div id="chart-wrapper">
+            <div id="chart"></div>
+            <div class="chart-wrapper-arrow">→</div>
+          </div>
         </div>
         <div>
            <div id="groupchart"></div>
@@ -85,7 +88,7 @@
       </div>
     </main>
   <footer class="container">
-    <h4 class="section-header mt-5 text-center">BLEIB IN KONTACT</h4>
+    <h4 class="section-header mt-5 text-center">BLEIB IN KONTAKT</h4>
     <div class="divider3 my-3"></div>
       <nav class="navbar navbar-expand-sm navbar-bottom">
           <a class="btn btn-link" href="https://liqd.net/en/blog/" target="_blank" role="button">Blog</a>
@@ -107,6 +110,11 @@
   <script src={% static 'legend.js' %}></script>
   <script src="{% static 'vis.js' %}"></script>
   <script src="{% static 'group_line.js' %}"></script>
+   <script>
+        $('#chart-wrapper').scroll(function(){
+          $('.chart-wrapper-arrow').hide('slow');
+       });
+     </script>
 </BODY>
 
 </HTML>
