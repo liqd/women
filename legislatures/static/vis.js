@@ -50,6 +50,7 @@ $(function () {
         .call(yAxis)
 
     svg.append("text")
+        .attr("class", "axis-label")
         .attr("transform",
             "translate(" + (width / 2) + " ," +
             (height + margin.top + 30) + ")")
@@ -57,6 +58,7 @@ $(function () {
         .text("Jahr");
 
     svg.append("text")
+        .attr("class", "axis-label")
         .attr("transform", "rotate(-90)")
         .attr("y", 0 - margin.left)
         .attr("x", 0 - (height / 2))

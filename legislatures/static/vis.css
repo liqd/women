@@ -1,8 +1,12 @@
 path {
-    stroke: grey;
-    stroke-width: 1;
+    stroke: #999;
+    stroke-width: 2;
     fill: none;
-    shape-rendering: crispEdges;
+    shape-rendering: auto;
+}
+
+g text {
+    font: .9rem 'Favorit', Courier, monospace;
 }
 
 .axis path,
@@ -10,45 +14,54 @@ path {
     fill: none;
     stroke: grey;
     stroke-width: 1;
-    shape-rendering: crispEdges;
+    shape-rendering: auto;
 }
 
 .line {
     fill: none;
-    stroke-width: 4;
+    stroke-width: 6;
+    shape-rendering: auto;
 }
 
 .line-0 {
-    stroke: red;
+    stroke: #FFEF8E;
 }
 
 .line-1 {
-    stroke: yellow;
+    stroke: #FFCDB3;
 }
 
 .line-2 {
-    stroke: green;
+    stroke: #72B1F8;
 }
 
 .line-3 {
-    stroke: blue;
+    stroke: #9FE9DA;
+}
+
+#chart circle {
+    stroke: #000;
+    fill: white;
 }
 
 div.tooltip {
     position: absolute;
-    text-align: center;
-    width: 150px;
-    height: 50px;
-    padding: 2px;
-    font: 12px sans-serif;
-    background: lightsteelblue;
+    width: 250px;
+    padding: 1rem;
+    font-size: 0.9rem;
+    background: linear-gradient(90deg, rgba(247,206,230,1) 0%, rgba(188,187,223,1) 55%, rgba(159,233,218,1) 100%);
     border: 0px;
-    border-radius: 8px;
+    box-shadow: 0px 0px 2px #999;
     pointer-events: none;
+    font: 1rem 'Plantin', 'Times New Roman', serif;
+}
+
+#chart .axis-label, .legend-box text{
+    font: 1.2rem 'Plantin', 'Times New Roman', serif;
 }
 
 .legend rect {
-  fill:white;
-  stroke:black;
+  fill: white;
+  stroke: #999;
   opacity:0.8;
 }

@@ -18,7 +18,7 @@ h1 {
 
 .navbar {
     background: rgb(247,206,230);
-    background: linear-gradient(90deg, rgba(247,206,230,1) 0%, rgba(188,187,223,1) 61%, rgba(159,233,218,1) 100%);
+    background: linear-gradient(90deg, rgba(247,206,230,1) 0%, rgba(188,187,223,1) 55%, rgba(159,233,218,1) 100%);
     border-color: rgb(27,73,88, 0);
 }
 
