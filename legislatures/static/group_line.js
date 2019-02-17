@@ -96,7 +96,7 @@ $(function () {
                 div.transition()
                     .duration(200)
                     .style("opacity", .9);
-                div.html(name + " (" + formatTime(d.year) + ")<br/>" + d.value + ' %')
+                div.html(name + " (" + formatTime(d.year) + ")<br/>" + d.info + "<br/>" + d.value + ' %')
                     .style("left", (d3.event.pageX) + "px")
                     .style("top", (d3.event.pageY - 28) + "px");
             })

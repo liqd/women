@@ -47,11 +47,20 @@ class LegislaturesView(TemplateView):
             for year in years_list:
                 year_as_date = '{}-01-01'.format(year)
                 if parl_group.filter(legislature__year=year):
-                    value = parl_group.filter(legislature__year=year).first().percentage_women
+                    parl_group_first = parl_group.filter(legislature__year=year).first()
+                    value = parl_group_first.percentage_women
                     parl_values.append(value)
+                    if value is None:
+                        info = 'Nicht im Parlament vertreten'
+                    else:
+                        info = ('Frauen: '
+                                + str(parl_group_first.number_women)
+                                + ' von '
+                                + str(parl_group_first.number_group))
                     data.append({
                         'year': year_as_date,
-                        'value': value
+                        'value': value,
+                        'info': info
                     })
             parl_series.append({
                 'name': choicename,
