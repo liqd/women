@@ -22,6 +22,7 @@ class Legislature(models.Model):
         choices=POLITICAL_SYSTEM_CHOICES,
         blank=True
     )
+    seats = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
         return (self.name + ' - ' + str(self.year))
