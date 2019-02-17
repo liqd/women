@@ -67,6 +67,9 @@
         <div>
            <div id="chart"></div>
         </div>
+        <div>
+           <div id="groupchart"></div>
+        </div>
 
       <div class="row" id="infographic">
           <div class="facts">
@@ -98,9 +101,12 @@
       var data = {{series | safe }}
       var years = {{years | safe }}
       var values = {{values | safe }}
+      var parlData = {{parl_series | safe }}
+      var parlValues = {{parl_values | safe }}
    </script>
   <script src={% static 'legend.js' %}></script>
-   <script src="{% static 'vis.js' %}"></script>
+  <script src="{% static 'vis.js' %}"></script>
+  <script src="{% static 'group_line.js' %}"></script>
 </BODY>
 
 </HTML>
