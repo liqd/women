@@ -100,7 +100,7 @@ h1 {
 }
 
 .btn-link {
-    font-family: Favorit, monospace;
+    font-family: 'Favorit', monospace;
     color: black;
 
     :hover {

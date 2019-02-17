@@ -32,7 +32,7 @@ g text {
 }
 
 .line-2 {
-    stroke: #72B1F8;
+    stroke: #C8BFE0;
 }
 
 .line-3 {
@@ -40,8 +40,13 @@ g text {
 }
 
 #chart circle {
-    stroke: #000;
+    stroke: #666;
     fill: white;
+    transform: scale(1);
+}
+
+#chart circle:hover {
+    fill: #666;
 }
 
 div.tooltip {
@@ -49,19 +54,68 @@ div.tooltip {
     width: 250px;
     padding: 1rem;
     font-size: 0.9rem;
-    background: linear-gradient(90deg, rgba(247,206,230,1) 0%, rgba(188,187,223,1) 55%, rgba(159,233,218,1) 100%);
+    background: white;
     border: 0px;
-    box-shadow: 0px 0px 2px #999;
+    margin-left: 1rem;
+    box-shadow: 0px 0px 4px #999;
     pointer-events: none;
     font: 1rem 'Plantin', 'Times New Roman', serif;
 }
 
-#chart .axis-label, .legend-box text{
+#chart .axis-label, .legend-box text, .legend-items text{
     font: 1.2rem 'Plantin', 'Times New Roman', serif;
 }
+
+.legend-items text{
+    font-size: 0.9rem;
+}
+
 
 .legend rect {
   fill: white;
   stroke: #999;
   opacity:0.8;
+
 }
+
+#chart-wrapper {
+    width: 100%;
+}
+
+
+@keyframes scroll-bounce {
+  0%   {right: 0%;}
+  100%  {right: 3%;}
+}
+
+  .chart-wrapper-arrow {
+    font-size: 2rem;
+    position: absolute;
+    right: 0%;
+    top: 40%;
+    animation-name: scroll-bounce;
+    animation-duration: 0.5s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    opacity: 1;
+}
+
+@media only screen and (max-width: 1200px) {
+  #chart-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    max-width: 100%;
+    padding-bottom: 3rem;
+    padding-right: 2rem;
+    position: relative;
+  }
+
+  .chart-wrapper-arrow {
+    opacity: 1;
+    animation-name: scroll-bounce;
+    animation-duration: 0.5s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+  }
+}
+
