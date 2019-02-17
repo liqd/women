@@ -51,6 +51,7 @@ class ParliamentaryGroup(models.Model):
     )
     colour_code = models.CharField(max_length=8)
     percentage_women = models.DecimalField(decimal_places=2, max_digits=4)
+    percentage_women = models.DecimalField(decimal_places=2, max_digits=4, blank=True, null=True)
     number_women = models.IntegerField(blank=True, null=True)
     percentage_group = models.DecimalField(decimal_places=2, max_digits=4, blank=True, null=True)
     number_group = models.IntegerField(blank=True, null=True)

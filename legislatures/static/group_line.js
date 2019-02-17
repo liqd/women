@@ -1,27 +1,27 @@
 $(function () {
     var margin = {top: 20, right: 20, bottom: 50, left: 70},
-        width = 1024,
-        height = 480;
+        width = 1140,
+        height = 600;
 
     var parseDate = d3.timeParse("%Y-%m-%d")
-    var formatTime = d3.timeFormat("%Y")
+    var formatTime = d3.time.format("%Y")
 
-    var x = d3.scaleTime()
-        .domain([new Date(1910, 1, 1), new Date(2030, 1, 1)])
+    var x = d3.time.scale()
+        .domain([new Date(1945, 1, 1), new Date(2030, 1, 1)])
         .range([0, width])
 
-    var allValues = values.map(function (d) {
+    var allValues = parlValues.map(function (d) {
         return parseFloat(d)
     })
     var maxValue = d3.max(allValues)
-    var y = d3.scaleLinear()
+    var y = d3.scale.linear()
         .domain([0, maxValue])
         .range([height, 0])
 
-    var xAxis = d3.axisBottom().scale(x).ticks(30)
-    var yAxis = d3.axisLeft().scale(y)
+    var xAxis = d3.svg.axis().scale(x).orient("bottom")
+    var yAxis = d3.svg.axis().scale(y).orient("left")
 
-    var valueline = d3.line()
+    var valueline = d3.svg.line()
         .x(function (d) {
             return x(d.year);
         })
@@ -29,11 +29,11 @@ $(function () {
             return y(d.value);
         })
 
-    var div = d3.select("#chart").append("div")
+    var div = d3.select("#groupchart").append("div")
         .attr("class", "tooltip")
         .style("opacity", 0);
 
-    var svg = d3.select("#chart")
+    var svg = d3.select("#groupchart")
         .append("svg")
         .attr("width", width)
         .attr("height", height + margin.top + margin.bottom)
@@ -66,7 +66,7 @@ $(function () {
         .style("text-anchor", "middle")
         .text("Frauenanteil in %");
 
-    data.forEach(function (item, i) {
+    parlData.forEach(function (item, i) {
         var name = item.name
         var data = item.data
 
@@ -85,7 +85,7 @@ $(function () {
         svg.selectAll("dot")
             .data(data)
             .enter().append("circle")
-            .attr("r", 6)
+            .attr("r", 5)
             .attr("cx", function (d) {
                 return x(d.year);
             })

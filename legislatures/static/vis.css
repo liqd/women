@@ -1,8 +1,12 @@
 path {
-    stroke: grey;
-    stroke-width: 1;
+    stroke: #999;
+    stroke-width: 2;
     fill: none;
-    shape-rendering: crispEdges;
+    shape-rendering: auto;
+}
+
+g text {
+    font: .9rem 'Favorit', Courier, monospace;
 }
 
 .axis path,
@@ -10,45 +14,108 @@ path {
     fill: none;
     stroke: grey;
     stroke-width: 1;
-    shape-rendering: crispEdges;
+    shape-rendering: auto;
 }
 
 .line {
     fill: none;
-    stroke-width: 4;
+    stroke-width: 6;
+    shape-rendering: auto;
 }
 
 .line-0 {
-    stroke: red;
+    stroke: #FFEF8E;
 }
 
 .line-1 {
-    stroke: yellow;
+    stroke: #FFCDB3;
 }
 
 .line-2 {
-    stroke: green;
+    stroke: #C8BFE0;
 }
 
 .line-3 {
-    stroke: blue;
+    stroke: #9FE9DA;
+}
+
+#chart circle {
+    stroke: #666;
+    fill: white;
+    transform: scale(1);
+}
+
+#chart circle:hover {
+    fill: #666;
 }
 
 div.tooltip {
     position: absolute;
-    text-align: center;
-    width: 150px;
-    height: 50px;
-    padding: 2px;
-    font: 12px sans-serif;
-    background: lightsteelblue;
+    width: 250px;
+    padding: 1rem;
+    font-size: 0.9rem;
+    background: white;
     border: 0px;
-    border-radius: 8px;
+    margin-left: 1rem;
+    box-shadow: 0px 0px 4px #999;
     pointer-events: none;
+    font: 1rem 'Plantin', 'Times New Roman', serif;
 }
 
-.legend rect {
-  fill:white;
-  stroke:black;
-  opacity:0.8;
+#chart .axis-label, .legend-box text, .legend-items text{
+    font: 1.2rem 'Plantin', 'Times New Roman', serif;
 }
+
+.legend-items text{
+    font-size: 0.9rem;
+}
+
+
+.legend rect {
+  fill: white;
+  stroke: #999;
+  opacity:0.8;
+
+}
+
+#chart-wrapper {
+    width: 100%;
+}
+
+
+@keyframes scroll-bounce {
+  0%   {right: 0%;}
+  100%  {right: 3%;}
+}
+
+  .chart-wrapper-arrow {
+    font-size: 2rem;
+    position: absolute;
+    right: 0%;
+    top: 40%;
+    animation-name: scroll-bounce;
+    animation-duration: 0.5s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    opacity: 0;
+}
+
+@media only screen and (max-width: 1200px) {
+  #chart-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    max-width: 100%;
+    padding-bottom: 3rem;
+    padding-right: 2rem;
+    position: relative;
+  }
+
+  .chart-wrapper-arrow {
+    opacity: 1;
+    animation-name: scroll-bounce;
+    animation-duration: 0.5s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+  }
+}
+
