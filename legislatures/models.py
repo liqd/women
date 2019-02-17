@@ -49,7 +49,7 @@ class ParliamentaryGroup(models.Model):
         max_length=3,
         choices=GROUP_CHOICES
     )
-    percentage_women = models.DecimalField(decimal_places=2, max_digits=4)
+    percentage_women = models.DecimalField(decimal_places=2, max_digits=4, blank=True, null=True)
     number_women = models.IntegerField(blank=True, null=True)
     percentage_group = models.DecimalField(decimal_places=2, max_digits=4, blank=True, null=True)
     number_group = models.IntegerField(blank=True, null=True)
