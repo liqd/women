@@ -109,10 +109,10 @@ $(function () {
     })
 
     svg.append("g")
-    .attr("class","legend")
-    .attr("transform","translate(50,30)")
-    .attr("data-style-padding",10)
-    .style("font-size","14px")
-    .call(d3.legend)
+        .attr("class","legend")
+        .attr("transform","translate(50,30)")
+        .attr("data-style-padding",10)
+        .style("font-size","14px")
+        .call(d3.legend)
 
 })
