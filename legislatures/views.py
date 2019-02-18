@@ -40,7 +40,7 @@ class LegislaturesView(TemplateView):
         children = []
         for group in groups:
             children.append({
-                'name': group.group,
+                'name': group.get_group_display().split(',')[0],
                 'colour': group.colour_code,
                 'children': [
                     {'name': 'Frauen',
